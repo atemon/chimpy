@@ -1,5 +1,5 @@
 import urllib
-import urllib2
+import urllib.request
 import pprint
 import simplejson
 from utils import transform_datetime
@@ -30,8 +30,9 @@ class Connection(object):
             pprint.pprint(params)
             print (__name__, "encoded parameters:", params)
 
-
-        response = urllib2.urlopen("%s?method=%s" %(self.url, method), params)
+        url = "%s?method=%s" %(self.url, method)
+        request = urllib.request.Request(url)
+        response = urllib.request.urlopen(request, params)
         data = response.read()
         response.close()
 

@@ -2,8 +2,8 @@ import urllib
 import urllib.request
 import pprint
 import simplejson
-from utils import transform_datetime
-from utils import flatten
+from .utils import transform_datetime
+from .utils import flatten
 _debug = 1
 
 

@@ -26,9 +26,9 @@ class Connection(object):
         params = urllib.urlencode(params, doseq=True)
 
         if _debug > 1:
-            print __name__, "making request with parameters"
+            print (__name__, "making request with parameters")
             pprint.pprint(params)
-            print __name__, "encoded parameters:", params
+            print (__name__, "encoded parameters:", params)
 
 
         response = urllib2.urlopen("%s?method=%s" %(self.url, method), params)
@@ -36,7 +36,7 @@ class Connection(object):
         response.close()
 
         if _debug > 1:
-            print __name__, "rpc call received", data
+            print (__name__, "rpc call received", data)
 
         result = simplejson.loads(data)
 
